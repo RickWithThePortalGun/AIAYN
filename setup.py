@@ -1,0 +1,30 @@
+from setuptools import setup, find_packages
+
+setup(
+    name='aiayn',
+    version='1.0.0',
+    description='Machine Translation: Attention Is All You Need',
+    author='Your Name',
+    packages=find_packages(),
+    python_requires='>=3.8',
+    install_requires=[
+        'torch>=2.0.0',
+        'numpy>=1.24.0',
+        'pandas>=2.0.0',
+        'datasets>=2.14.0',
+        'transformers>=4.30.0',
+        'sentencepiece>=0.1.99',
+        'sacremoses>=0.0.53',
+        'nltk>=3.8.1',
+        'scipy>=1.10.0',
+        'tqdm>=4.65.0',
+        'wandb>=0.15.0',
+        'matplotlib>=3.7.0',
+        'seaborn>=0.12.0',
+        'python-dotenv>=1.0.0',
+        'openai>=0.27.0',
+        'google-cloud-translate>=3.11.0',
+        'azure-ai-textanalytics>=5.2.0',
+        'sacrebleu>=2.3.1',
+    ],
+)
