@@ -6,7 +6,6 @@ from tqdm import tqdm
 import pandas as pd
 from typing import List
 
-# Add parent directory to path
 sys.path.append(os.path.dirname(os.path.dirname(os.path.dirname(__file__))))
 
 from src.data.loader import load_data_split
@@ -31,7 +30,7 @@ def translate_openai(texts: List[str], api_key: str) -> List[str]:
                 temperature=0.3
             )
             translations.append(response.choices[0].message.content.strip())
-            time.sleep(0.1)  # Rate limiting
+            time.sleep(0.1)
         
         return translations
     except Exception as e:
@@ -95,12 +94,10 @@ def evaluate_apis(args):
     
     results = {}
     
-    # Load API keys from environment
     import os
     from dotenv import load_dotenv
     load_dotenv()
     
-    # Evaluate OpenAI
     if args.api == 'openai' or args.api == 'all':
         print("\nEvaluating OpenAI...")
         openai_key = os.getenv('OPENAI_API_KEY')
@@ -113,7 +110,6 @@ def evaluate_apis(args):
         else:
             print("OpenAI API key not found. Skipping...")
     
-    # Evaluate Google Cloud
     if args.api == 'google' or args.api == 'all':
         print("\nEvaluating Google Cloud Translation...")
         google_key = os.getenv('GOOGLE_CLOUD_API_KEY')
